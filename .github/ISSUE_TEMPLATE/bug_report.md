@@ -1,36 +1,107 @@
-name: Bug Report
-description: File a bug report to help us improve.
+name: "Bug Report"
+description: "Something isn't working as expected / 报告 Bug"
+title: "[Bug] "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for reporting! Please fill in as much detail as you can.
+
   - type: input
-    id: contact
-    attributes:
-      label: Contact Information
-      description: How can we get in touch with you?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: textarea
-    id: reproduction
-    attributes:
-      label: Reproduction Steps
-      description: How did you encounter this bug?
-      placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-    validations:
-      required: true
-  - type: dropdown
     id: version
     attributes:
-      label: Version
-      options:
-        - v1.0
-        - v2.0
-        - Other
+      label: "Botio Version"
+      description: "Settings → About → Version"
+      placeholder: "e.g. 1.0.3 build3"
     validations:
       required: true
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: "macOS Version"
+      placeholder: "e.g. macOS 15.3 (Sequoia)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: cli-tool
+    attributes:
+      label: "CLI Tool"
+      description: "Which CLI tool were you using?"
+      options:
+        - Claude Code
+        - Codex
+        - Gemini CLI
+        - Cursor Agent
+        - Droid
+        - Qoder
+        - Copilot
+        - CodeBuddy
+        - OpenCode
+        - Multiple / Not specific
+    validations:
+      required: true
+
+  - type: dropdown
+    id: terminal
+    attributes:
+      label: "Terminal"
+      options:
+        - iTerm2
+        - Terminal.app
+        - Ghostty
+        - Warp
+        - VS Code / Cursor (integrated terminal)
+        - Alacritty
+        - Kitty
+        - cmux
+        - WezTerm / Kaku
+        - Other
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What happened?"
+      placeholder: "When I..., I expected..., but instead..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to reproduce"
+      placeholder: |
+        1. Start a Claude Code session
+        2. ...
+        3. ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Diagnostic logs"
+      description: "Settings → About → Export Diagnostics. Attach the .zip here."
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots or screen recordings"
+      description: "Drag and drop images or videos here"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: search
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I searched existing issues and this hasn't been reported yet"
+          required: true
